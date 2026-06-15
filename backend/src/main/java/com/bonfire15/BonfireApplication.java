@@ -1,0 +1,11 @@
+package com.bonfire15;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BonfireApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(BonfireApplication.class, args);
+    }
+}

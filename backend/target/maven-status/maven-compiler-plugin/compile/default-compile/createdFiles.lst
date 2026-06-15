@@ -1,0 +1,9 @@
+com\bonfire15\controller\SongController.class
+com\bonfire15\repository\CommentRepository.class
+com\bonfire15\repository\SongRepository.class
+com\bonfire15\model\Comment.class
+com\bonfire15\config\CorsConfig.class
+com\bonfire15\BonfireApplication.class
+com\bonfire15\controller\GuestbookController.class
+com\bonfire15\config\DatabaseSeeder.class
+com\bonfire15\model\Song.class

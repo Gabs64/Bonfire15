@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  /* Theme Color Palette - Inspired by the neon-pink & fire-orange logo */
+  --bg-dark: #090605;
+  --bg-ash: #120d0c;
+  --bg-card: rgba(24, 18, 16, 0.65);
+  --bg-panel: rgba(14, 10, 9, 0.85);
+  
+  --color-pink: #ff007f;
+  --color-pink-glow: rgba(255, 0, 127, 0.45);
+  --color-pink-dim: #b30059;
+
+  --color-orange: #ff5e00;
+  --color-orange-glow: rgba(255, 94, 0, 0.45);
+  --color-orange-dim: #b34200;
+
+  --color-yellow: #ffb700;
+  --color-cream: #f4eae6;
+  --color-ash: #9c928e;
+  --color-border: rgba(255, 94, 0, 0.12);
+  --color-border-hover: rgba(255, 0, 127, 0.3);
+
+  --shadow-neon-pink: 0 0 20px var(--color-pink-glow);
+  --shadow-neon-orange: 0 0 20px var(--color-orange-glow);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles & Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--color-cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-cream);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.05), var(--shadow-neon-orange);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #33221c;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pink-dim);
+}
+
+/* Dynamic Animation Utilities */
+@keyframes pulse-pink {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3), inset 0 0 15px rgba(255, 0, 127, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.6), inset 0 0 20px rgba(255, 0, 127, 0.3);
+  }
+}
+
+@keyframes pulse-orange {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 94, 0, 0.3);
+    filter: drop-shadow(0 0 5px rgba(255, 94, 0, 0.2));
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 94, 0, 0.6);
+    filter: drop-shadow(0 0 15px rgba(255, 94, 0, 0.5));
+  }
+}
+
+@keyframes float-ash {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(50px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-text {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 94, 0, 0.5), 0 0 15px rgba(255, 0, 127, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 94, 0, 0.8), 0 0 25px rgba(255, 0, 127, 0.6);
+  }
+}
+
+.text-glow {
+  animation: glow-text 3s infinite ease-in-out;
+}
+
+.fire-glow {
+  animation: pulse-orange 4s infinite ease-in-out;
+}
+
+.pink-glow {
+  animation: pulse-pink 4s infinite ease-in-out;
+}
+
+/* Page Layout Wrapper */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 110px; /* Space for the persistent bottom audio player */
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 100px; /* Space for fixed navbar */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+

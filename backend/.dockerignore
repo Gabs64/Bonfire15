@@ -1,0 +1,7 @@
+target/
+db/
+songs/
+*.iml
+.idea/
+.vscode/
+*.log

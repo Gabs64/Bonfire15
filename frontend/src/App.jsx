@@ -7,6 +7,7 @@ import Music from './pages/Music';
 import Guestbook from './pages/Guestbook';
 import Band from './pages/Band';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 const defaultSongs = [];
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/songs');
+        const response = await fetch(`${API_URL}/api/songs`);
         if (response.ok) {
           const data = await response.json();
           if (data && data.length > 0) {

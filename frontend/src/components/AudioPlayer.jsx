@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo from '../assets/logo.png';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
 export default function AudioPlayer({ 
   songs, 
   activeSongIndex, 
@@ -125,9 +127,8 @@ export default function AudioPlayer({
 
   if (!currentSong) return null;
 
-  // Build the complete local file URL based on Spring Boot's API
-  // Using relative path so it hits http://localhost:8080 during dev proxying
-  const audioSrcUrl = `http://localhost:8080${currentSong.audioUrl}`;
+  // Build the complete file URL based on Spring Boot's API
+  const audioSrcUrl = `${API_URL}${currentSong.audioUrl}`;
 
   return (
     <>

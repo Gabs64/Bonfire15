@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
 export default function Music({ 
   songs, 
   setSongs, 
@@ -26,7 +28,7 @@ export default function Music({
     setLikeLoading(prev => ({ ...prev, [id]: true }));
 
     try {
-      const response = await fetch(`http://localhost:8080/api/songs/${id}/like`, {
+      const response = await fetch(`${API_URL}/api/songs/${id}/like`, {
         method: 'POST',
       });
       if (response.ok) {

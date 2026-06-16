@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
 export default function Guestbook() {
   const [comments, setComments] = useState([]);
   const [username, setUsername] = useState('');
@@ -11,7 +13,7 @@ export default function Guestbook() {
   // Fetch comments
   const fetchComments = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/guestbook');
+      const response = await fetch(`${API_URL}/api/guestbook`);
       if (response.ok) {
         const data = await response.json();
         setComments(data);
@@ -43,7 +45,7 @@ export default function Guestbook() {
     setSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/guestbook', {
+      const response = await fetch(`${API_URL}/api/guestbook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

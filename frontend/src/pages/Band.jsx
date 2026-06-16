@@ -21,7 +21,7 @@ export default function Band() {
     {
       name: 'Meji',
       role: 'Vocalist',
-      bio: '',
+      bio: "Hey y'all! MEJI here, 23 years old, fun-sized, and powered almost entirely by music. If there's a song playing, chances are I'm already singing along (whether people like it or not). I'm passionate about growing as an artist, chasing big dreams, and seeing where this crazy journey leads me. One thing I know for sure: talent isn't built overnight. It takes heart, hard work, and a whole lot of showing up and I'm here for all of it.",
       instrument: '',
       quote: 'Quote',
       emoji: '🎤',

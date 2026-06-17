@@ -40,7 +40,7 @@ export default function Band() {
   const members = [
     {
       name: 'Jed',
-      role: 'Vocalist',
+      role: 'Producer, Vocalist',
       bio: '',
       instrument: '',
       quote: 'Quote',
@@ -49,7 +49,7 @@ export default function Band() {
     },
     {
       name: 'Meji',
-      role: 'Vocalist',
+      role: 'Visionaries, Vocalist',
       bio: "Hey y'all! MEJI here, 23 years old, fun-sized, and powered almost entirely by music. If there's a song playing, chances are I'm already singing along (whether people like it or not). I'm passionate about growing as an artist, chasing big dreams, and seeing where this crazy journey leads me. One thing I know for sure: talent isn't built overnight. It takes heart, hard work, and a whole lot of showing up and I'm here for all of it.",
       instrument: '',
       quote: 'Quote',
@@ -58,7 +58,7 @@ export default function Band() {
     },
     {
       name: 'JD',
-      role: 'Vocalist, Instrumentalist',
+      role: 'Producer, Vocalist, Instrumentalist',
       bio: '',
       instrument: '',
       quote: 'Quote',
@@ -76,7 +76,7 @@ export default function Band() {
     },
     {
       name: 'Shon',
-      role: 'Vocalist',
+      role: 'Vocalist, Instrumentalist',
       bio: "I am Shon, a man with a deep voice but can reach high ass notes, I specialize on opm songs and I love playing the guitar",
       instrument: '',
       quote: 'Quote',
@@ -94,7 +94,7 @@ export default function Band() {
     },
     {
       name: 'Gab',
-      role: 'Manager',
+      role: 'Visionaries, Vocalist, Manager',
       bio: '',
       instrument: '',
       quote: 'Quote',

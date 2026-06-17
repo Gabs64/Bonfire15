@@ -4,6 +4,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
 export default function Music({ 
   songs, 
+  songsLoaded,
   setSongs, 
   activeSongIndex, 
   setActiveSongIndex, 
@@ -22,7 +23,7 @@ export default function Music({
   };
 
   const handleLikeSong = async (id, e) => {
-    e.stopPropagation(); // prevent playing when clicking like
+    e.stopPropagation();
     if (likeLoading[id]) return;
 
     setLikeLoading(prev => ({ ...prev, [id]: true }));
@@ -33,7 +34,6 @@ export default function Music({
       });
       if (response.ok) {
         const updatedSong = await response.json();
-        // Update song list local state
         setSongs(prevSongs => prevSongs.map(song => song.id === id ? updatedSong : song));
       }
     } catch (err) {
@@ -43,6 +43,17 @@ export default function Music({
     }
   };
 
+  // Show loading state while the API fetch is in progress
+  if (!songsLoaded) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', gap: '20px' }}>
+        <span style={{ fontSize: '3rem', animation: 'pulse 1.5s ease-in-out infinite' }}>🔥</span>
+        <p style={{ color: 'var(--color-ash)', fontSize: '1rem', letterSpacing: '0.05em' }}>Loading campfire tapes…</p>
+      </div>
+    );
+  }
+
+  // Fetch resolved but no songs found (backend offline or empty)
   if (songs.length === 0) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', alignItems: 'center' }}>

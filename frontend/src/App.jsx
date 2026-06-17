@@ -8,11 +8,11 @@ import Guestbook from './pages/Guestbook';
 import Band from './pages/Band';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-const defaultSongs = [];
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
-  const [songs, setSongs] = useState(defaultSongs);
+  const [songs, setSongs] = useState([]);
+  const [songsLoaded, setSongsLoaded] = useState(false);
   const [activeSongIndex, setActiveSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [analyser, setAnalyser] = useState(null);
@@ -29,7 +29,10 @@ export default function App() {
           }
         }
       } catch (err) {
-        console.warn("Backend API offline. Using built-in local camp tracks.", err);
+        console.warn("Backend API offline. No songs available.", err);
+      } finally {
+        // Always mark as loaded, whether fetch succeeded or failed
+        setSongsLoaded(true);
       }
     };
     fetchSongs();
@@ -51,7 +54,8 @@ export default function App() {
       case 'music':
         return (
           <Music 
-            songs={songs} 
+            songs={songs}
+            songsLoaded={songsLoaded}
             setSongs={setSongs}
             activeSongIndex={activeSongIndex}
             setActiveSongIndex={setActiveSongIndex}

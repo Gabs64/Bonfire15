@@ -37,7 +37,7 @@ export default function Band() {
       image: jdImg
     },
     {
-      name: 'Mochs',
+      name: 'Mox',
       role: 'Vocalist, Rapper',
       bio: "Hello! I'm Mochs.\n\nI like to be playful with my vocals, and I have a heart for soul music and corridos tumbados. Outside of music, I love sports - specifically boxing and MMA.",
       instrument: '',

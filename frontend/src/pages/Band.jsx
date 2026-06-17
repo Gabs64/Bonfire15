@@ -57,7 +57,7 @@ export default function Band() {
       image: mejiImg
     },
     {
-      name: 'JD',
+      name: 'Jxydee',
       role: 'Producer, Vocalist, Instrumentalist',
       bio: '',
       instrument: '',
@@ -84,7 +84,7 @@ export default function Band() {
       image: shonImg
     },
     {
-      name: 'Catto',
+      name: 'Cathico',
       role: 'Rapper',
       bio: '',
       instrument: '',

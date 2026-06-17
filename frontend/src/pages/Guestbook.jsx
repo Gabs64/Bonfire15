@@ -9,6 +9,13 @@ export default function Guestbook() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Fetch comments
   const fetchComments = async () => {
@@ -92,8 +99,8 @@ export default function Guestbook() {
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: '1fr 1.5fr',
-      gap: '40px',
+      gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr',
+      gap: isMobile ? '28px' : '40px',
       alignItems: 'start',
       width: '100%',
       maxWidth: '1100px',
@@ -101,8 +108,8 @@ export default function Guestbook() {
     }}>
       {/* Left Column: Post Form */}
       <div className="glass-panel" style={{
-        padding: '30px',
-        position: 'sticky',
+        padding: isMobile ? '22px' : '30px',
+        position: isMobile ? 'static' : 'sticky',
         top: '110px',
       }}>
         <h2 style={{

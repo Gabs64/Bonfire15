@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import jedImg from '../assets/members/jed.jpg';
-import mejiImg from '../assets/members/meji.jpg';
+import jedImg from '../assets/members/jed.png';
+import mejiImg from '../assets/members/meji.png';
 import jdImg from '../assets/members/jd.png';
 import cattoImg from '../assets/members/catto.png';
-import shonImg from '../assets/members/shon.jpg';
+import shonImg from '../assets/members/shon.png';
 import moxImg from '../assets/members/mox.png';
 import gabImg from '../assets/members/gab.png';
 

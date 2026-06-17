@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import jedImg from '../assets/members/jed.jpg';
 import mejiImg from '../assets/members/meji.jpg';
 import jdImg from '../assets/members/jd.png';
-import cattoImg from '../assets/members/catto.jpg';
+import cattoImg from '../assets/members/catto.png';
 import shonImg from '../assets/members/shon.jpg';
+import moxImg from '../assets/members/mox.png';
+import gabImg from '../assets/members/gab.png';
 
 export default function Band() {
   const [selectedMember, setSelectedMember] = useState(null);
@@ -72,7 +74,7 @@ export default function Band() {
       instrument: '',
       quote: 'Quote',
       emoji: '🎤',
-      image: null
+      image: moxImg
     },
     {
       name: 'Shon',
@@ -99,7 +101,7 @@ export default function Band() {
       instrument: '',
       quote: 'Quote',
       emoji: '💼',
-      image: null
+      image: gabImg
     }
   ];
 
